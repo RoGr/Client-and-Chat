@@ -1,0 +1,42 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox fx:controller="client.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+
+    <MenuBar>
+        <Menu text="Программа">
+            <items>
+                <MenuItem text="Выйти из программы" onAction="#exit"/>
+            </items>
+        </Menu>
+        <Menu text="Помощь">
+            <items>
+                <MenuItem text="О программе"/>
+                <MenuItem text="Команды" onAction="#menuSendHelpRequest"/>
+            </items>
+        </Menu>
+
+    </MenuBar>
+
+
+    <HBox fx:id="loginPanel">
+        <TextField fx:id="loginField" promptText="Логин" HBox.hgrow="ALWAYS"/>
+        <PasswordField fx:id="passField" promptText="Пароль" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnLogin" text="Авторизация" onAction="#sendAuth"></Button>
+    </HBox>
+
+
+    <HBox VBox.vgrow="ALWAYS">
+        <TextArea fx:id="textArea" editable="false" HBox.hgrow="ALWAYS"></TextArea>
+        <ListView fx:id="clientsList" visible="false" managed="false" onMouseClicked="#clientsListClick"></ListView>
+    </HBox>
+
+
+
+    <HBox fx:id="msgPanel">
+        <TextField fx:id="textField" HBox.hgrow="ALWAYS"/>
+        <Button text="Отправить" onAction="#sendMsg"/>
+        <Button text="웃" onAction="#clientsListToggle" fx:id="btnClientsListToggle"/>
+
+    </HBox>
+</VBox>

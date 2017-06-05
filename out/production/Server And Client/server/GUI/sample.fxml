@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:controller="server.GUI.Server" xmlns:fx="http://javafx.com/fxml" alignment="center">
+    <MenuBar>
+        <Menu text="Панель администратора">
+            <items>
+                <MenuItem fx:id="startServer" text="Запустить сервер" onAction="#start" visible="true"/>
+                <MenuItem fx:id="stopServer" text="Осстановить сервер" onAction="#stop" visible="false"/>
+                <MenuItem text="Выйти из программы" onAction="#exit"/>
+            </items>
+        </Menu>
+        <Menu text="Клиенты">
+            <items>
+                <MenuItem text="Клиенты онлайн" onAction="#broadcastClietnList"/>
+                <MenuItem text="Все клиенты" onAction="#getAllClients"/>
+            </items>
+        </Menu>
+    </MenuBar>
+    <HBox VBox.vgrow="ALWAYS">
+        <ListView
+                fx:id="clientsList"
+                onMouseClicked="#clientsListClick"
+                visible="true" managed="true"
+                VBox.vgrow="ALWAYS"/>
+    </HBox>
+</VBox>
